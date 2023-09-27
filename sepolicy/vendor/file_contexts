@@ -16,7 +16,11 @@
 /dev/mi_display/disp_feature                                                                           u:object_r:vendor_displayfeature_device:s0
 /mnt/vendor/persist/display(/.*)?                                                                      u:object_r:vendor_persist_display_file:s0
 
-# Dolby
+# Dolby Atmos
+/data/vendor/dolby(/.*)?                                                                               u:object_r:vendor_dolby_file:s0
+/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                               u:object_r:hal_dms_default_exec:s0
+
+# Dolby Vision
 /(vendor|system/vendor)/bin/hw/dolbycodec2                                                             u:object_r:mediacodec_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.dolby\.media\.c2@1\.0-service                                   u:object_r:mediacodec_exec:s0
 
