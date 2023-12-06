@@ -138,6 +138,9 @@ TARGET_BOARD_PLATFORM := mt6897
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_VENDOR := xiaomi
 
+# Power
+TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
+
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
