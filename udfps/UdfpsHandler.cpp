@@ -27,9 +27,6 @@
 #define PARAM_FOD_PRESSED 1
 #define PARAM_FOD_RELEASED 0
 
-#define FOD_STATUS_OFF 0
-#define FOD_STATUS_ON 1
-
 #define TOUCH_DEV_PATH "/dev/xiaomi-touch"
 #define TOUCH_MAGIC 'T'
 #define TOUCH_IOC_SET_CUR_VALUE _IO(TOUCH_MAGIC, SET_CUR_VALUE)
@@ -176,52 +173,31 @@ class XiaomiMt6897UdfpsHander : public UdfpsHandler {
 
     void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
         LOG(INFO) << __func__;
-        // Ensure touchscreen is aware of the press state, ideally this is not needed
+        // Notify touchscreen about press status
         setFingerDown(true);
     }
 
     void onFingerUp() {
         LOG(INFO) << __func__;
-        // Ensure touchscreen is aware of the press state, ideally this is not needed
+        // Notify touchscreen about press status
         setFingerDown(false);
     }
 
     void onAcquired(int32_t result, int32_t vendorCode) {
         LOG(INFO) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
         if (result == FINGERPRINT_ACQUIRED_GOOD) {
-            // Request to disable HBM already, even if the finger is still pressed
-            disp_local_hbm_req req;
-            req.base.flag = 0;
-            req.base.disp_id = MI_DISP_PRIMARY;
-            req.local_hbm_value = LHBM_TARGET_BRIGHTNESS_OFF_FINGER_UP;
-            ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
-            setFodStatus(FOD_STATUS_OFF);
-        }
-
-        /* vendorCode
-         * 21: waiting for finger
-         * 22: finger down
-         * 23: finger up
-         */
-        if (vendorCode == 21) {
-            setFodStatus(FOD_STATUS_ON);
+            setFingerDown(false);
         }
     }
 
     void cancel() {
         LOG(INFO) << __func__;
-        setFodStatus(FOD_STATUS_OFF);
     }
 
   private:
     fingerprint_device_t* mDevice;
     android::base::unique_fd touch_fd_;
     android::base::unique_fd disp_fd_;
-
-    void setFodStatus(int value) {
-        int buf[MAX_BUF_SIZE] = {MI_DISP_PRIMARY, Touch_Fod_Enable, value};
-        ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
-    }
 
     void setFingerDown(bool pressed) {
         int buf[MAX_BUF_SIZE] = {MI_DISP_PRIMARY, Touch_Fod_Enable, pressed ? 1 : 0};
