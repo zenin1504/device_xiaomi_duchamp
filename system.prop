@@ -4,6 +4,9 @@ vendor.camera.aux.packagelist=org.lineageos.aperture,com.android.camera,com.goog
 # Google Lens
 ro.com.google.lens.oem_camera_package=com.android.camera
 
+# Increase max cached processes
+activity_manager.max_cached_processes=64
+
 # Framework allowlists
 persist.vendor.camera.privapp.list=com.android.camera
 
