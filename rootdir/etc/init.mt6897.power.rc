@@ -106,6 +106,10 @@ on property:sys.boot_completed=1
     write /dev/cpuctl/camera-daemon/cpu.uclamp.min 50
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
 
+    # Uclamp tuning
+    write /proc/sys/kernel/sched_util_clamp_min_rt_default 96
+    write /proc/sys/kernel/sched_util_clamp_min 128
+
     # start cpuqos
     write /sys/devices/system/cpu/cpuqos/cpuqos_boot_complete 1
 
