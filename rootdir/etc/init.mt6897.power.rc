@@ -123,5 +123,4 @@ service vendor.hwcomposer-3-2 /vendor/bin/hw/android.hardware.graphics.composer@
     group graphics drmrpc
     capabilities SYS_NICE
     onrestart restart surfaceflinger
-    task_profiles HighPerformance
-    writepid /sys/kernel/reserve_pool/pid
+    task_profiles ProcessCapacityHigh HighPerformance
