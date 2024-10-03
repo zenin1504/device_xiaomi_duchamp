@@ -690,4 +690,7 @@
     <!-- Whether devices suports in-display fingerprint when screen is off -->
     <bool name="config_supportScreenOffUdfps">true</bool>
 
+    <!-- media controls -->
+    <bool name="config_mediaControlsTurbulenceByDefault">true</bool>
+
 </resources>
