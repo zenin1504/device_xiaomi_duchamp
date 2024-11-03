@@ -24,7 +24,7 @@ PRODUCT_SYSTEM_NAME := duchamp_global
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="duchamp_global-user 14 UP1A.230905.011 V816.0.12.0.UNLMIXM release-keys" \
-    TARGET_PRODUCT=$(PRODUCT_SYSTEM_NAME)
+    BuildDesc="duchamp_global-user 14 UP1A.230905.011 V816.0.12.0.UNLMIXM release-keys" \
+    BuildFingerprint=POCO/duchamp_global/duchamp:14/UP1A.230905.011/V816.0.12.0.UNLMIXM:user/release-keys \
+    DeviceProduct=$(PRODUCT_SYSTEM_NAME)
 
-BUILD_FINGERPRINT := POCO/duchamp_global/duchamp:14/UP1A.230905.011/V816.0.12.0.UNLMIXM:user/release-keys
