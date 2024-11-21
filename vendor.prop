@@ -102,6 +102,7 @@ vendor.connsys.driver.ready=no
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
+debug.graphics.game_default_frame_rate.disabled=true
 debug.mediatek.appgamepq_compress=1
 debug.sf.early.app.duration=16600000
 debug.sf.early.sf.duration=16600000
