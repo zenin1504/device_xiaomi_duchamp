@@ -252,9 +252,6 @@ persist.vendor.sys.fp.expolevel=0x88
 persist.vendor.fingerprint.type=udfps_optical
 persist.vendor.fingerprint.sensor_location=610|2442|114
 
-# FRP
-ro.frp.pst=/dev/block/by-name/frp
-
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
 
