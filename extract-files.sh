@@ -75,7 +75,6 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             grep -q libaudioclient_shim.so "${2}" || "${PATCHELF}" --add-needed "libaudioclient_shim.so" "$2"
             ;;
-        system_ext/lib64/libsource.so|\
         odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl)
             [ "$2" = "" ] && return 0
             grep -q "libui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
@@ -101,15 +100,6 @@ function blob_fixup {
         vendor/lib64/libarmnn_ndk.mtk.vndk.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "liblog.so" "${2}"
-            ;;
-        vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libultrahdr.so" "libultrahdr_prebuilt.so" "${2}"
-            ;;
-        vendor/lib64/libultrahdr_prebuilt.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libjpegdecoder.so" "libjpegdecoder_prebuilt.so" "${2}"
-            "${PATCHELF}" --replace-needed "libjpegencoder.so" "libjpegencoder_prebuilt.so" "${2}"
             ;;
         vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so)
             [ "$2" = "" ] && return 0

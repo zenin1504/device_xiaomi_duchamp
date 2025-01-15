@@ -53,6 +53,9 @@ function lib_to_package_fixup_vendor_variants() {
     fi
 
     case "$1" in
+        libjpegdecoder | \
+        libjpegencoder | \
+        libultrahdr | \
         libmialgo_aio_seg | \
             libmialgo_utils | \
             vendor.mediatek.hardware.videotelephony-V1-ndk | \
