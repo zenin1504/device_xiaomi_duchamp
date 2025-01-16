@@ -69,7 +69,7 @@ function blob_fixup {
     case "$1" in
         system_ext/priv-app/ImsService/ImsService.apk)
             [ "$2" = "" ] && return 0
-            apktool_patch "${2}" "${MY_DIR}/blob-patches/ImsService.patch" -r
+            apktool_patch "${2}" "${MY_DIR}/blob-patches/ImsService.patch"
             ;;
         system_ext/lib64/libsink.so)
             [ "$2" = "" ] && return 0
