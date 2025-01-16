@@ -1,22 +1,28 @@
-From bd6ef2e6c94655f118b5a85e3269cddbb127792a Mon Sep 17 00:00:00 2001
-From: bengris32 <bengris32@protonmail.ch>
-Date: Fri, 15 Dec 2023 22:05:40 +0000
-Subject: [PATCH] ImsService: Export receivers that aren't exclusively
- registered for system broadcasts
-
-Signed-off-by: bengris32 <bengris32@protonmail.ch>
----
- smali/com/mediatek/ims/ImsConfigManager.smali               | 6 ++++--
- smali/com/mediatek/ims/ImsService$MyHandler.smali           | 4 +++-
- smali/com/mediatek/ims/MtkSuppServExt.smali                 | 6 ++++--
- .../mediatek/ims/config/internal/ImsConfigController.smali  | 6 ++++--
- smali/com/mediatek/ims/internal/ImsVTProviderUtil.smali     | 6 ++++--
- smali/com/mediatek/wfo/impl/ImsLocationHandler.smali        | 6 ++++--
- smali/com/mediatek/wfo/impl/MwiService.smali                | 6 ++++--
- smali/com/mediatek/wfo/impl/WfcHandler.smali                | 6 ++++--
- smali/com/mediatek/wfo/impl/WifiPdnHandler.smali            | 6 ++++--
- 9 files changed, 35 insertions(+), 17 deletions(-)
-
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index d81ae85..4bd0c3e 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -51,6 +51,13 @@
+     <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:directBootAware="true" android:extractNativeLibs="false" android:label="ImsApp" android:name="com.mediatek.ims.ImsApp" android:persistent="true" android:usesNonSdkApi="true">
+         <uses-library android:name="com.mediatek.ims.oemplugin" android:required="false"/>
+         <uses-library android:name="com.mediatek.ims.plugin" android:required="false"/>
++        <uses-library android:name="mediatek-common" android:required="true"/>
++        <uses-library android:name="mediatek-framework" android:required="true"/>
++        <uses-library android:name="mediatek-ims-base" android:required="true"/>
++        <uses-library android:name="mediatek-ims-common" android:required="true"/>
++        <uses-library android:name="mediatek-telecom-common" android:required="true"/>
++        <uses-library android:name="mediatek-telephony-base" android:required="true"/>
++        <uses-library android:name="mediatek-telephony-common" android:required="true"/>
+         <service android:exported="true" android:name="com.mediatek.ims.MtkDynamicImsService" android:permission="android.permission.BIND_IMS_SERVICE">
+             <meta-data android:name="android.telephony.ims.RCS_FEATURE" android:value="true"/>
+             <meta-data android:name="android.telephony.ims.MMTEL_FEATURE" android:value="true"/>
+@@ -82,4 +89,4 @@
+             </intent-filter>
+         </receiver>
+     </application>
+-</manifest>
+\ No newline at end of file
++</manifest>
 diff --git a/smali/com/mediatek/ims/ImsConfigManager.smali b/smali/com/mediatek/ims/ImsConfigManager.smali
 index d287579..99367fe 100644
 --- a/smali/com/mediatek/ims/ImsConfigManager.smali
@@ -42,7 +48,7 @@ index d287579..99367fe 100644
      .line 151
      return-void
 diff --git a/smali/com/mediatek/ims/ImsService$MyHandler.smali b/smali/com/mediatek/ims/ImsService$MyHandler.smali
-index a51f3a4..c6e40b5 100644
+index 7c0dc16..e5758ae 100644
 --- a/smali/com/mediatek/ims/ImsService$MyHandler.smali
 +++ b/smali/com/mediatek/ims/ImsService$MyHandler.smali
 @@ -3255,7 +3255,9 @@
@@ -227,6 +233,3 @@ index d0f17b0..5ec5c3f 100644
  
      .line 772
      return-void
--- 
-2.47.1
-
