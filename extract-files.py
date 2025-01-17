@@ -33,7 +33,10 @@ lib_fixups: lib_fixups_user_type = {
     ('libmialgo_aio_seg',
      'libmialgo_utils',
      'vendor.mediatek.hardware.videotelephony-V1-ndk',
-     'vendor.xiaomi.hw.touchfeature-V1-ndk'): lib_fixup_vendor_suffix,
+     'vendor.xiaomi.hardware.fingerprintextension-V1-ndk',
+     'vendor.xiaomi.hw.touchfeature-V1-ndk',
+     'vendor.mediatek.hardware.camera.isphal@1.0',
+     'vendor.mediatek.hardware.camera.isphal-V1-ndk'): lib_fixup_vendor_suffix,
 }
 
 
@@ -42,9 +45,9 @@ blob_fixups: blob_fixups_user_type = {
         .apktool_patch('blob-patches/ImsService.patch'),
 
     'system_ext/lib64/libimsma.so': blob_fixup()
-        .replace_needed('libsink.so', 'libsink-mtk.so'),
+         .replace_needed('libsink.so', 'libsink-mtk.so'),
 
-    'system_ext/lib64/libsink-mtk.so': blob_fixup()
+     'system_ext/lib64/libsink-mtk.so': blob_fixup()
         .add_needed('libaudioclient_shim.so'),
 
     'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
@@ -64,7 +67,12 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so': blob_fixup()
         .replace_needed('android.hardware.audio.common-V1-ndk.so', 'android.hardware.audio.common-V2-ndk.so'),
 
-    ('vendor/bin/hw/mt6897/android.hardware.graphics.allocator-V2-service-mediatek.mt6897',
+    'vendor/bin/hw/mfp-daemon': blob_fixup()
+        .replace_needed('android.hardware.biometrics.common-V3-ndk.so', 'android.hardware.biometrics.common-V4-ndk.so')
+        .replace_needed('android.hardware.biometrics.fingerprint-V3-ndk.so', 'android.hardware.biometrics.fingerprint-V4-ndk.so'),
+
+    ('system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so',
+     'vendor/bin/hw/mt6897/android.hardware.graphics.allocator-V2-service-mediatek.mt6897',
      'vendor/lib64/egl/mt6897/libGLES_mali.so',
      'vendor/lib64/hw/mt6897/android.hardware.graphics.allocator-V2-mediatek.so',
      'vendor/lib64/hw/mt6897/android.hardware.graphics.mapper@4.0-impl-mediatek.so',
@@ -79,7 +87,7 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/lib64/vendor.mediatek.hardware.pq_aidl-V6-ndk.so'): blob_fixup()
         .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
 
-    'vendor/lib64/mt6897/libmtkcam_hal_aidl_common.so': blob_fixup()
+     'vendor/lib64/mt6897/libmtkcam_hal_aidl_common.so': blob_fixup()
         .replace_needed('android.hardware.camera.common-V2-ndk.so', 'android.hardware.camera.common-V1-ndk.so'),
 
     ('vendor/lib64/mt6897/libmtkcam_grallocutils.so',
@@ -87,19 +95,24 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so')
         .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
 
-    ('odm/lib64/libmt_mitee.so',
-     'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee'): blob_fixup()
-        .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V4-ndk.so'),
+     ('odm/lib64/libmt_mitee.so',
+      'vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee'): blob_fixup()
+         .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V4-ndk.so'),
 
-    'vendor/lib64/mt6897/libpqconfig.so': blob_fixup()
-        .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so'),
+     'vendor/lib64/mt6897/libpqconfig.so': blob_fixup()
+         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so'),
 
-    ('odm/lib64/libTrueSight.so',
-     'odm/lib64/libalLDC.so',
-     'odm/lib64/libalAILDC.so',
-     'odm/lib64/libalhLDC.so',
-     'vendor/lib64/libMiVideoFilter.so',
-     'vendor/lib64/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so'): blob_fixup()
+     ('system_ext/lib64/libcamera_algoup_jni.xiaomi.so',
+      'system_ext/lib64/libcamera_mianode_jni.xiaomi.so',
+      'system_ext/lib64/libcamera_ispinterface_jni.xiaomi.so'): blob_fixup()
+        .add_needed('libgui_shim_miuicamera.so'),
+
+     ('odm/lib64/libTrueSight.so',
+      'odm/lib64/libalLDC.so',
+      'odm/lib64/libalAILDC.so',
+      'odm/lib64/libalhLDC.so',
+      'vendor/lib64/libMiVideoFilter.so',
+      'vendor/lib64/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so'): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_createFromHandle')
         .clear_symbol_version('AHardwareBuffer_describe')
@@ -109,8 +122,14 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
 
-    'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
+      'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
         .add_needed('libultrahdr_shim.so'),
+
+      'system_ext/lib64/vendor.mediatek.hardware.camera.isphal-V1-ndk.so': blob_fixup()
+         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
+
+      'system_ext/priv-app/MiuiCamera/MiuiCamera.apk': blob_fixup()
+        .apktool_patch('blob-patches/MIUICamera/'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
