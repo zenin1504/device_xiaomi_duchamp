@@ -59,7 +59,9 @@ function lib_to_package_fixup_vendor_variants() {
         libmialgo_aio_seg | \
             libmialgo_utils | \
             vendor.mediatek.hardware.videotelephony-V1-ndk | \
-            vendor.xiaomi.hw.touchfeature-V1-ndk)
+            vendor.xiaomi.hw.touchfeature-V1-ndk | \
+	    vendor.mediatek.hardware.camera.isphal@1.0 | \
+	    vendor.mediatek.hardware.camera.isphal-V1-ndk)
             echo "$1-vendor"
             ;;
         *)
