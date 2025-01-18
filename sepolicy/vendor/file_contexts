@@ -4,6 +4,10 @@
 # Batterysecret
 /(vendor|system/vendor)/bin/batterysecret                                                              u:object_r:batterysecret_exec:s0
 
+# Dolby
+/(vendor|system/vendor)/bin/hw/dolbycodec2                                                             u:object_r:mediacodec_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.dolby\.media\.c2@1\.0-service                                   u:object_r:mediacodec_exec:s0
+
 # Gatekeeper
 /(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper-service\.mitee                            u:object_r:hal_gatekeeper_default_exec:s0
 
