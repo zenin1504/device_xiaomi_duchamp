@@ -83,10 +83,6 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             grep -q "libshim_codec2_hidl.so" "${2}" || "${PATCHELF}" --add-needed "libshim_codec2_hidl.so" "${2}"
 	    ;;
-        odm/etc/init/vendor.xiaomi.hw.touchfeature-service.rc)
-            [ "$2" = "" ] && return 0
-            sed -i '/seclabel/d' "${2}"
-            ;;
         vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b|\
         vendor/bin/hw/dolbycodec2|\
         vendor/bin/hw/vendor.dolby.media.c2@1.0-service|\
