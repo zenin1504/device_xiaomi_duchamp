@@ -1,3 +1,6 @@
+# Power
+genfscon sysfs /devices/platform/11f01000.i2c/i2c-5/5-0034/11f01000.i2c:mt6375@34:mtk-gauge/power_supply  u:object_r:sysfs_power_supply:s0
+
 # Trusted Execution Environment (TEE)
 genfscon proc /mitee_log 									 u:object_r:proc_mitee_log:s0
 
