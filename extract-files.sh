@@ -83,13 +83,6 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             grep -q "libshim_codec2_hidl.so" "${2}" || "${PATCHELF}" --add-needed "libshim_codec2_hidl.so" "${2}"
 	    ;;
-        vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b|\
-        vendor/bin/hw/dolbycodec2|\
-        vendor/bin/hw/vendor.dolby.media.c2@1.0-service|\
-        vendor/lib64/hw/mt6897/android.hardware.camera.provider@2.6-impl-mediatek.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v34.so" "${2}"
-            ;;
         vendor/lib*/hw/audio.primary.mediatek.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "android.hardware.audio.common-V1-ndk.so" "android.hardware.audio.common-V2-ndk.so" "${2}"
