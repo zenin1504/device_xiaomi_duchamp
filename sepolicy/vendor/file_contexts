@@ -5,6 +5,11 @@
 # Batterysecret
 /(vendor|system/vendor)/bin/batterysecret                                                              u:object_r:batterysecret_exec:s0
 
+# Camera
+/data/vendor/camera(/.*)?                                                                              u:object_r:vendor_camera_data_file:s0
+/mnt/vendor/persist/camera(/.*)?                                                                       u:object_r:camera_persist_file:s0
+/odm/bin/crossbuild/DataSet/SQLiteModule/db(/.*)?                                                      u:object_r:vendor_camera_update_db_file:s0
+
 # Display
 /(vendor|system/vendor)/bin/displayfeature                                                             u:object_r:vendor_displayfeature_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.displayfeature_aidl-service                   u:object_r:vendor_hal_displayfeature_default_exec:s0

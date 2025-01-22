@@ -1,2 +1,5 @@
+# Camera
+vendor.mediatek.hardware.camera.bgservice.IBGService/default             u:object_r:mtk_hal_bgs_service:s0
+
 # Display
 vendor.xiaomi.hardware.displayfeature_aidl.IDisplayFeature/default       u:object_r:vendor_hal_displayfeature_service:s0

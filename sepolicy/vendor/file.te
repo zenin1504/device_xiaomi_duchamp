@@ -1,3 +1,8 @@
+# Camera
+type camera_persist_file, file_type;
+type vendor_camera_data_file, data_file_type, file_type;
+type vendor_camera_update_db_file, file_type, vendor_file_type;
+
 # Display
 type vendor_displayfeature_device, dev_type;
 type vendor_displayfeature_sysfs, fs_type, sysfs_type;

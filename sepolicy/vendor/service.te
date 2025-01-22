@@ -1,2 +1,5 @@
+# Camera
+type mtk_hal_bgs_service, protected_service, service_manager_type, hal_service_type;
+
 # Display
 type vendor_hal_displayfeature_service, protected_service, service_manager_type;
