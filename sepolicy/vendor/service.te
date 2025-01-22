@@ -3,3 +3,12 @@ type mtk_hal_bgs_service, protected_service, service_manager_type, hal_service_t
 
 # Display
 type vendor_hal_displayfeature_service, protected_service, service_manager_type;
+
+# Fido
+type hal_mfidoca_service, protected_service, service_manager_type;
+
+# Mlipay
+type hal_mlipay_service, protected_service, service_manager_type, hal_service_type;
+
+# Mtdservice
+type hal_mtdservice_service, protected_service, service_manager_type, hal_service_type;
