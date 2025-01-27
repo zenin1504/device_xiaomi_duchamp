@@ -1,3 +1,6 @@
+# Camera
+persist.vendor.camera.     u:object_r:vendor_mtk_camera_prop:s0
+
 # Display
 persist.vendor.dc_backlight.enable             u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.cabc.enable                          u:object_r:vendor_displayfeature_prop:s0
