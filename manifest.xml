@@ -89,10 +89,6 @@
         <fqname>@2.3::ISoundTriggerHw/default</fqname>
     </hal>
     <hal format="aidl">
-        <name>vendor.mediatek.hardware.audio</name>
-        <fqname>IMtkAudio/default</fqname>
-    </hal>
-    <hal format="aidl">
         <name>vendor.mediatek.hardware.camera.atms</name>
         <fqname>IATMs/default</fqname>
     </hal>
