@@ -148,6 +148,10 @@ function blob_fixup {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libgui_shim_miuicamera.so" "${2}"
             ;;
+        system_ext/priv-app/MiuiCamera/MiuiCamera.apk)
+            [ "$2" = "" ] && return 0
+            apktool_patch "${2}" "${MY_DIR}/blob-patches/MIUICamera/"
+            ;;
         *)
             return 1
             ;;
