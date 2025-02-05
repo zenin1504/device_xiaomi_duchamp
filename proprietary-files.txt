@@ -488,7 +488,6 @@ vendor/lib64/mt6897/libaiseg_cache.so;SYMLINK=vendor/lib64/libaiseg_cache.so
 vendor/lib64/mt6897/libaiseg_model.so;SYMLINK=vendor/lib64/libaiseg_model.so
 vendor/lib64/mt6897/libaiseg_p1ggm.so;SYMLINK=vendor/lib64/libaiseg_p1ggm.so
 vendor/lib64/mt6897/libaiseg_sun.so;SYMLINK=vendor/lib64/libaiseg_sun.so
-vendor/lib64/mt6897/libaiselector.so;SYMLINK=vendor/lib64/libaiselector.so
 vendor/lib64/mt6897/libalgo.aosp.log.so;SYMLINK=vendor/lib64/libalgo.aosp.log.so
 vendor/lib64/mt6897/libapiwrapper.so;SYMLINK=vendor/lib64/libapiwrapper.so
 vendor/lib64/mt6897/libcam.3a_isp.utils.so;SYMLINK=vendor/lib64/libcam.3a_isp.utils.so
