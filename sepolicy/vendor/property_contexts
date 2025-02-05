@@ -22,8 +22,11 @@ vendor.display.panel.calibration.status        u:object_r:vendor_displayfeature_
 vendor.displayfeature.entry.enable             u:object_r:vendor_displayfeature_prop:s0
 
 # Mlipay
+persist.vendor.sys.attestation.status    u:object_r:vendor_mlipay_prop:s0
+persist.vendor.sys.id.status             u:object_r:vendor_mlipay_prop:s0
 persist.vendor.sys.pay.                  u:object_r:vendor_mlipay_prop:s0
 persist.vendor.sys.provision.status      u:object_r:vendor_mlipay_prop:s0
+persist.vendor.sys.rkp.status            u:object_r:vendor_mlipay_prop:s0
 vendor.sys.feature_state                 u:object_r:vendor_mlipay_prop:s0
 vendor.sys.rpmb_state                    u:object_r:vendor_mlipay_prop:s0
 
