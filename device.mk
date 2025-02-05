@@ -241,6 +241,9 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/sku/,$(TARGET_COPY_OUT_ODM)/etc)
 
 # Radio
+PRODUCT_PACKAGES += \
+    vendor_mdota_symlink
+
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/rsc,$(TARGET_COPY_OUT_VENDOR)/etc/rsc)
 
