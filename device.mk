@@ -249,6 +249,10 @@ include $(DEVICE_PATH)/vendor_logtag.mk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/sku/,$(TARGET_COPY_OUT_ODM)/etc)
 
+# Thermals
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/thermals/,$(TARGET_COPY_OUT_ODM)/etc)
+    
 # Radio
 PRODUCT_PACKAGES += \
     vendor_mdota_symlink
