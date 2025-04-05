@@ -123,7 +123,7 @@ blob_fixups: blob_fixups_user_type = {
      'odm/lib64/libalAILDC.so',
      'odm/lib64/libalhLDC.so',
      'vendor/lib64/libMiVideoFilter.so',
-     'vendor/lib64/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so': blob_fixup()
+     'vendor/lib64/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so'): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_createFromHandle')
         .clear_symbol_version('AHardwareBuffer_describe')
