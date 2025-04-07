@@ -4,3 +4,5 @@ hal_client_domain(platform_app, hal_touchfeature_xiaomi)
 allow platform_app vendor_hal_fingerprint_service_xiaomi:service_manager find;
 
 get_prop(platform_app, vendor_display_type_prop)
+allow platform_app unlabeled:filesystem { getattr };
+allow platform_app app_data_file:file execute;
