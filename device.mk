@@ -15,6 +15,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 
+# Signing
+-include vendor/lineage-priv/keys/keys.mk
+
 # A/B
 ifneq ($(WITH_GMS),true)
     $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)

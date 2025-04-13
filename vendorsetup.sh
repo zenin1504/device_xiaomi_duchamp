@@ -4,9 +4,16 @@ echo "Applying source modifications..."
 # Udfps patching for duchamp
 echo "Patching udfps in duchamp frameworks/base..."
 cd frameworks/base
-git fetch https://github.com/zenin1504/frameworks_base
-git cherry-pick 7283c613595865b28a6c90f245fdde3b032a0dec ba0b41e42939e34d520cd4c388b36296f5ce9027
+git fetch https://github.com/The-Clover-Project/frameworks_base 15-qpr2-peridot
+git cherry-pick 830933794473c660dd50b8f0daf9dd29e0fa9fb9 e7eb9e4a46c76062d9af59cacac43b4479b7748d
 cd ../../
+
+# Nuke refresh rate selector
+echo "Nuking refresh rate selector so no one mess with it..."
+cd  packages/apps/Settings
+git fetch https://github.com/zenin1504/packages_apps_Settings
+git cherry-pick 1b4f825efb744efa185f0af588f39e47837371c0
+cd ../../../
 
 # Hardware Compatibility Fixes
 echo "Fetching and applying hardware compatibility fixes for hardware/lineage/compat..."
@@ -21,13 +28,6 @@ cd hardware/libhardware_legacy
 git fetch https://android.googlesource.com/platform/hardware/libhardware_legacy 54bb5d03278152e696c7bff4607278790ac73057
 git cherry-pick 54bb5d03278152e696c7bff4607278790ac73057
 cd ../../
-
-# Nuke refresh rate selector
-echo "Nuking refresh rate selector so no one mess with it..."
-cd  packages/apps/Settings
-git fetch https://github.com/xiaomi-mt6897-duchamp/android_packages_apps_Settings
-git cherry-pick 697a70a15351479b048e17205686a71147b92504
-cd ../../../
 
 # Add WPA3 fix patch
 echo "Patching WPA3 to work on duchamp device..."
