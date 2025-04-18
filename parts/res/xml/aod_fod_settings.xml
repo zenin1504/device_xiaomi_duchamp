@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Main AOD‑FOD toggle -->
+    <SwitchPreferenceCompat
+        android:key="aod_fod"
+        android:title="@string/aod_fod_title"
+        android:summary="@string/aod_fod_summary" />
+
+    <!-- FOD Icon Customization -->
+    <PreferenceCategory
+        android:key="category_customization"
+        android:title="@string/fod_customization_title">
+
+        <EditTextPreference
+            android:key="fod_pos_x"
+            android:title="@string/fod_pos_x_title"
+            android:dialogTitle="@string/fod_pos_x_dialog"
+            android:inputType="number"
+            android:summary="@string/fod_pos_summary_x" />
+
+        <EditTextPreference
+            android:key="fod_pos_y"
+            android:title="@string/fod_pos_y_title"
+            android:dialogTitle="@string/fod_pos_y_dialog"
+            android:inputType="number"
+            android:summary="@string/fod_pos_summary_y" />
+
+        <SwitchPreferenceCompat
+            android:key="show_icon"
+            android:title="@string/show_icon_title"
+            android:summary="@string/show_icon_summary" />
+
+        <SwitchPreferenceCompat
+            android:key="auto_hide_icon"
+            android:title="@string/auto_hide_icon_title"
+            android:summary="@string/auto_hide_icon_summary" />
+
+        <ListPreference
+            android:key="auto_hide_delay"
+            android:title="@string/auto_hide_delay_title"
+            android:entries="@array/auto_hide_delay_entries"
+            android:entryValues="@array/auto_hide_delay_values"
+            android:summary="@string/auto_hide_delay_summary" />
+
+    </PreferenceCategory>
+
+    <!-- Note at bottom -->
+    <Preference
+        android:key="aod_note"
+        android:title="@string/aod_note_title"
+        android:summary="@string/aod_note_summary"
+        android:selectable="false" />
+
+</PreferenceScreen>

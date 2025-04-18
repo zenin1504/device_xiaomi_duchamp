@@ -37,6 +37,8 @@ import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingService;
 import org.lineageos.settings.turbocharging.TurboChargingService;
+import org.lineageos.settings.aof.AodFodUtils;
+import org.lineageos.settings.aof.AodFodService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
@@ -82,11 +84,17 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         if (DEBUG) Log.i(TAG, "Starting services...");
 
         // Start Touch Sampling Service
-        context.startServiceAsUser(new Intent(context, TouchSamplingService.class), UserHandle.CURRENT);
+         context.startServiceAsUser(new Intent(context, TouchSamplingService.class), UserHandle.CURRENT);
+
+       // Restore AOD FOD state
+          AodFodUtils.restoreState(context);
+
+       // Start AOD FOD Service
+          context.startServiceAsUser(new Intent(context, AodFodService.class), UserHandle.CURRENT);
 
        // Start TurboChargingService
-         Intent turboChargingIntent = new Intent(context, TurboChargingService.class);
-         context.startService(turboChargingIntent);
+          Intent turboChargingIntent = new Intent(context, TurboChargingService.class);
+          context.startService(turboChargingIntent);
     }
 
     private void overrideHdrTypes(Context context) {

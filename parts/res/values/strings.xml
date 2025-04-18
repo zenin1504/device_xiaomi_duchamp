@@ -101,4 +101,33 @@
     <string name="image_preview_content_description">Preview</string>
     <string name="image_preview_next_page_content_description">Next</string>
     <string name="image_preview_previous_page_content_description">Previous</string>
+
+    <!-- AODFOD -->
+    <string name="aod_fod_title">Always on Fingerprint</string>
+    <string name="aod_fod_summary">Allows unlocking with the screen off. Enabling may cause accidental wake‑ups and may increase battery consumption.</string>
+
+    <!-- Customization Category -->
+    <string name="fod_customization_title">FOD Icon Customization</string>
+
+    <!-- Position -->
+    <string name="fod_pos_x_title">FOD Icon X Position</string>
+    <string name="fod_pos_x_dialog">Enter FOD X coordinate (px)</string>
+    <string name="fod_pos_y_title">FOD Icon Y Position</string>
+    <string name="fod_pos_y_dialog">Enter FOD Y coordinate (px)</string>
+    <string name="fod_pos_summary_x">Current: %s px</string>
+    <string name="fod_pos_summary_y">Current: %s px</string>
+
+    <!-- Show/Hide -->
+    <string name="show_icon_title">Show FOD Icon</string>
+    <string name="show_icon_summary">Toggle to show or hide the FOD icon.</string>
+
+    <!-- Auto-hide -->
+    <string name="auto_hide_icon_title">Auto-hide FOD Icon</string>
+    <string name="auto_hide_icon_summary">Automatically hide the FOD icon after idle period.</string>
+    <string name="auto_hide_delay_title">Idle Auto-hide Delay</string>
+    <string name="auto_hide_delay_summary">%s minutes</string>
+
+    <!-- Bottom note -->
+    <string name="aod_note_title">Note</string>
+    <string name="aod_note_summary">Kindly disable Always on Fingerprint if you want to use AOD or Always‑On Display.</string>
 </resources>
