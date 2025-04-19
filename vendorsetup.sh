@@ -1,13 +1,6 @@
 # 1. Apply Git Changes (Source Modification)
 echo "Applying source modifications..."
 
-# Udfps patching for duchamp
-echo "Patching udfps in duchamp frameworks/base..."
-cd frameworks/base
-git fetch https://github.com/The-Clover-Project/frameworks_base 15-qpr2-peridot
-git cherry-pick 830933794473c660dd50b8f0daf9dd29e0fa9fb9 e7eb9e4a46c76062d9af59cacac43b4479b7748d
-cd ../../
-
 # Nuke refresh rate selector
 echo "Nuking refresh rate selector so no one mess with it..."
 cd  packages/apps/Settings
