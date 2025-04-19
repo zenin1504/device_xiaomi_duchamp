@@ -4,3 +4,6 @@
 -keep class org.lineageos.settings.touchsampling.* {
   *;
 }
+-keep class org.lineageos.settings.turbocharging.* {
+  *;
+}
