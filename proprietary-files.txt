@@ -1797,6 +1797,10 @@ vendor/mitee/ta/f13010e0-2ae1-11e5-896a0002a5d5c51d.ta
 # Vibrator
 vendor/firmware/aw8697_haptic.bin
 
+# V4A
+system_ext/app/v4a/ViPER4AndroidFX.apk;OVERRIDES=AudioFX|3bf4d86a9f5257b0c0531e8573acf294198fbec0
+vendor/lib64/soundfx/libv4a_re.so|29add59a318370db5c6ceb37de6aed0cefe9ae0e
+
 # Wi-Fi
 vendor/bin/wlan_assistant
 vendor/etc/init/init.wlan_drv.rc

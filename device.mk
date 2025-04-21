@@ -12,9 +12,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
-# V4A
-$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
-
 # Signing
 -include vendor/lineage-priv/keys/keys.mk
 
