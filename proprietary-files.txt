@@ -189,6 +189,9 @@ vendor/etc/audiodata.db
 vendor/etc/misound_res_headphone.bin
 vendor/etc/misound_res_spk.bin
 
+# Audio Firmware
+vendor/firmware/aw882xx_acf.bin
+
 # Audio (Dolby)
 vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
 vendor/etc/dolby/dax-default-spatializer.xml
