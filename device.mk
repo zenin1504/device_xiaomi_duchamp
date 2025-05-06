@@ -383,6 +383,19 @@ PRODUCT_PACKAGES += \
     android.hardware.usb-service.mediatek \
     android.hardware.usb.gadget-service.mediatek
 
+# USB Configuration
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.nonblocking_ffs=0 \
+    persist.adb.nonblocking_ffs=0 \
+    persist.sys.usb.config=mtp,adb
+
+ifeq ($(filter $(TARGET_BUILD_VARIANT),user userdebug),$(TARGET_BUILD_VARIANT))
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    ro.force.debuggable=1
+endif
+
 # Vendor service manager
 PRODUCT_PACKAGES += \
     vndservicemanager
